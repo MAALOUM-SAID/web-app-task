@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  
+
+<div class="container mt-5 mb-3">
+  <div class="row">
+    {% for ts in task %}
+    <div class="col">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="{{ts.task_title}}">
+        <label class="form-check-label" for="{{ts.task_title}}">
+          {{ts.task_title}}
+        </label>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+
+
+
+<div class="container p-3 table-bordered">
+<table class="table">
+  <thead>
+    <tr class="table-secondary">
+      <th scope="col">Title</th>
+      <th scope="col">Task</th>
+      <th scope="col">Category</th>
+      <th scope="col">Status</th>
+      <th scope="col">Begin</th>
+      <th scope="col">End</th>
+      <th scope="col">Config</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ts in task %}
+    <tr>
+      <th scope="row">{{ts.task_title}}</th>
+      <td>{{ts.task}}</td>
+      <td>{{ts.category}}</td>
+      <td>{{ts.status}}</td>
+      <td>{{ts.begin}}</td>
+      <td>{{ts.end}}</td>
+      <td><i class="fa-solid fa-pen-to-square text-warning"></i>
+        <i class="fa-solid fa-trash text-danger"></i>
+      </td>
+    </tr>
+    {% endfor %}
+</table>
+    {% comment %}  {% endcomment %}
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <a href="{% url 'users' %}"><i class="fa-solid fa-plus"></i></a>
+            
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+  {% endblock content %}
