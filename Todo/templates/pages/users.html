@@ -5,46 +5,7 @@
 <div class='container card border-warning mb-3 p-3 mt-5'>
   <form method="POST">
     {% csrf_token %}
-      <div class="input-group mb-3">
-        <input type="text" name="title"  class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        {% comment %} {{title}} {% endcomment %}
-        <span class="input-group-text" id="inputGroup-sizing-default">
-          Title
-        </span>
-      </div>
-      <div class="input-group  mb-3">
-        {{content}}
-        {% comment %} <input name="task" type="text" class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> {% endcomment %}
-        <span class="input-group-text" id="inputGroup-sizing-default">
-          Task
-        </span>
-      </div>
-      <div class="container mb-3">
-        <div class="row">
-          <div class="col">
-            {{category}}
-          </div>
-          <div class="col">
-            {{status}}
-          </div>
-        </div>
-      </div>
-      <div class="input-group mb-3">
-        {% comment %} {{begin}} {% endcomment %}
-        {% comment %} <input name="begin" type="time" class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> {% endcomment %}
-        {{begin}}
-        <span class="input-group-text" id="inputGroup-sizing-default">
-          Begin
-        </span>
-      </div>
-      <div class="input-group mb-3">
-        {% comment %} {{end}} {% endcomment %}
-        {% comment %} <input name="end" type="time" class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> {% endcomment %}
-        {{end}}
-        <span class="input-group-text" id="inputGroup-sizing-default">
-          End
-        </span>
-      </div>
+      {{task}}
       <button class="btn btn-outline-success float-end" type="submit">save</button>
 
     </form>

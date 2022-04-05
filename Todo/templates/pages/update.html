@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class='container card border-warning mb-3 p-3 mt-5'>
+  <form method="POST">
+    {% csrf_token %}
+      {{form}}
+      <button class="btn btn-outline-success float-end" type="submit">save</button>
+
+    </form>
+    
+
+<div class="container p-3 table-bordered">
+  <table class="table">
+    <thead>
+      <tr class="table-secondary">
+        <th scope="col">Title</th>
+        <th scope="col">Task</th>
+        <th scope="col">Category</th>
+        <th scope="col">Status</th>
+        <th scope="col">Begin</th>
+        <th scope="col">End</th>
+        <th scope="col">Config</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ts in task %}
+      <tr>
+        <th scope="row">{{ts.task_title}}</th>
+        <td>{{ts.task}}</td>
+        <td>{{ts.category}}</td>
+        <td>{{ts.status}}</td>
+        <td>{{ts.begin}}</td>
+        <td>{{ts.end}}</td>
+        <td>
+          <a href="{% url 'update' ts.id%}">
+          <i class="fa-solid fa-pen-to-square text-warning"></i>
+          </a>
+          <i class="fa-solid fa-trash text-danger"></i>
+        </td>
+      </tr>
+      {% endfor %}
+  </div>
+{% endblock content %}
+<div class="input-group mb-3">
+  <input type="text" name="title"  class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  {% comment %} {{title}} {% endcomment %}
+  <span class="input-group-text" id="inputGroup-sizing-default">
+    Title
+  </span>
+</div>
+<div class="input-group  mb-3">
+  {{content}}
+  {% comment %} <input name="task" type="text" class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> {% endcomment %}
+  <span class="input-group-text" id="inputGroup-sizing-default">
+    Task
+  </span>
+</div>
+<div class="container mb-3">
+  <div class="row">
+    <div class="col">
+      {{category}}
+    </div>
+    <div class="col">
+      {{status}}
+    </div>
+  </div>
+</div>
+<div class="input-group mb-3">
+  {% comment %} {{begin}} {% endcomment %}
+  {% comment %} <input name="begin" type="time" class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> {% endcomment %}
+  {{begin}}
+  <span class="input-group-text" id="inputGroup-sizing-default">
+    Begin
+  </span>
+</div>
+<div class="input-group mb-3">
+  {% comment %} {{end}} {% endcomment %}
+  {% comment %} <input name="end" type="time" class="form-control border-info" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> {% endcomment %}
+  {{end}}
+  <span class="input-group-text" id="inputGroup-sizing-default">
+    End
+  </span>
+</div>

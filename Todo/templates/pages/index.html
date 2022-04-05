@@ -44,7 +44,10 @@
       <td>{{ts.status}}</td>
       <td>{{ts.begin}}</td>
       <td>{{ts.end}}</td>
-      <td><i class="fa-solid fa-pen-to-square text-warning"></i>
+      <td>
+        <a href="{% url 'update' ts.id %}">
+        <i class="fa-solid fa-pen-to-square text-warning"></i>
+        </a>
         <i class="fa-solid fa-trash text-danger"></i>
       </td>
     </tr>
@@ -54,8 +57,7 @@
     <div class="container">
         <div class="row">
           <div class="col">
-            <a href="{% url 'users' %}"><i class="fa-solid fa-plus"></i></a>
-            
+            <a href="{% url 'users'  %}"><i class="fa-solid fa-plus"></i></a>
           </div>
         </div>
       </div>

@@ -24,7 +24,10 @@ class Task(models.Model):
     def __str__(self):
         if self.task_title==None:
             return 'Null'
-        return self.task_title
+        return f"{self.task_title}"
+    def __iter__(self):
+
+        return iter([self.id,self.task_title,self.task,self.begin,self.end])
     
 
 
