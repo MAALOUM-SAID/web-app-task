@@ -48,14 +48,5 @@
       <button class="btn btn-outline-success float-end" type="submit">save</button>
 
     </form>
-    {% comment %} {% if err == 'false' %}
-    <button class="btn btn-outline-primary ">home</button>
-    {% else %}
-    <button class="btn btn-outline-danger ">home</button>
-
-    {% endif %} {% endcomment %}
-    <a href="{% url 'index' %}" class='container p-2'>
-        <button class="btn btn-outline-success ">home</button>
-    </a>
   </div>
 {% endblock content %}
