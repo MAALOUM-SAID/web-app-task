@@ -1,3 +1,4 @@
+
 from django.shortcuts import redirect, render
 
 from .form import *
@@ -31,3 +32,13 @@ def update(request,pk):
         'form':form,
     }
     return render(request,'pages/update.html',context)
+
+def delete(request,pk):
+    task=Task.objects.get(id=pk)
+    tas=Task.objects.all().filter(task_title=task)
+    if request.method=='POST':
+        task.delete()
+        return redirect(to='index')
+
+
+    return render(request,'pages/delete.html',{'task':tas})

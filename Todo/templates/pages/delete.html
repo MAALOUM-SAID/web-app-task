@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="alert alert-danger d-flex align-items-center m-5" role="alert">
+    <i class="fa-solid fa-triangle-exclamation p-2"></i>
+    <div>
+      Are You sure to remove This Task ?
+    </div>
+  </div>
+  <div class='container card border-danger mb-3 p-3 mt-2'>
+  <form  method="POST">
+    {% csrf_token %}
+    <div class="container p-3 table-bordered">
+        <table class="table">
+          <thead>
+            <tr class="table-secondary">
+              <th scope="col">Title</th>
+              <th scope="col">Task</th>
+              <th scope="col">Category</th>
+              <th scope="col">Status</th>
+              <th scope="col">Begin</th>
+              <th scope="col">End</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ts in task %}
+            <tr>
+              <th scope="row">{{ts.task_title}}</th>
+              <td>{{ts.task}}</td>
+              <td>{{ts.category}}</td>
+              <td>{{ts.status}}</td>
+              <td>{{ts.begin}}</td>
+              <td>{{ts.end}}</td>
+            </tr>
+            {% endfor %}
+        </div>      
+      <button class="btn m-2  btn-outline-danger float-end" type="submit">Yes</button>
+    </form>
+    <a href="{% url 'index' %}" class="btn m-2 btn-outline-success float-end">
+        cancel</a>
+</div>
+{% endblock content %}
